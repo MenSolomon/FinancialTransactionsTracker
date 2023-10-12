@@ -1,0 +1,29 @@
+GET http://localhost:3334/income
+
+
+###
+
+POST http://localhost:3334/income/new
+Content-Type: application/json
+
+{
+  "title":"Income From farming",
+  "amount":"7000",
+  "category":"Business",
+  "description":"profit per monthly sales"
+
+}
+
+###
+DELETE http://localhost:3334/income/delete/65281fcbb645f5625d1c1e10
+
+###
+
+PUT http://localhost:3334/income/update/65282c1ab645f5625d1c1e13
+Content-Type: application/json
+
+{
+  "title":"Genesis"
+}
+
+

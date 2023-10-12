@@ -1,0 +1,61 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary-color: #222260;
+  --primary-color2: "color: rgba(34,34,96, .6)";
+  --primary-color3: "color: rgba(34,34,96, .4)";
+  --color-green: #42ad00;
+  --color-grey: #aaa;
+  --color-accent: #f56692;
+  --color-delete: #ff0000;
+}
+
+body {
+  height: 100vh;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  overflow: hidden;
+  color: var(--primary-color2);
+  /* background-color: red; */
+}
+
+.App {
+  padding: 1.5% 1.8%;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  gap: 1.4vw;
+  background: linear-gradient(
+    122deg,
+    rgba(219, 146, 115, 1) 0%,
+    rgba(221, 166, 126, 1) 0%,
+    rgba(222, 170, 133, 1) 11%,
+    rgba(230, 205, 202, 1) 16%,
+    rgba(233, 219, 229, 1) 21%,
+    rgba(235, 226, 242, 1) 26%
+  );
+}
+
+.homepageContainer {
+  height: 100%;
+}
+
+.active .NavBarBtns {
+  /* color: white; */
+  border-radius: 0.5vw;
+  /* background: #5585fe; */
+  border-left: 3px solid #d86793;
+}
+
+.deleteIcon:hover {
+  color: #291f5c;
+}
+
+/* .active span {
+  color: red;
+} */
