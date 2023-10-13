@@ -26,4 +26,36 @@ Content-Type: application/json
   "title":"Genesis"
 }
 
+###
+
+GET http://localhost:3334/api/v1/expense
+
+
+###
+
+POST http://localhost:3334/api/v1/expense/new
+Content-Type: application/json
+
+{
+  "title":"Income From farming",
+  "amount":"7000",
+  "category":"Business",
+  "description":"profit per monthly sales"
+
+}
+
+###
+DELETE http://localhost:3334/api/v1/expense/delete/65281fcbb645f5625d1c1e10
+
+###
+
+PUT http://localhost:3334/api/v1/expense/update/65282c1ab645f5625d1c1e13
+Content-Type: application/json
+
+{
+  "title":"Genesis"
+}
+
+
+
 
