@@ -10,16 +10,29 @@ const Incomes = () => {
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
+  const [TotalIncome, setTotalIncome] = useState(0);
 
-  const API_BASE = "http://localhost:3334";
+  const API_BASE = "http://localhost:3334/api/v1";
 
   const TextFieldArrays = ["Title", "Amount", "Category", "Description"];
+
+  const getTotalAmount = (data) => {
+    // Use the reduce method to sum the 'amount' property of each object
+    const total = data.reduce((acc, obj) => acc + obj.amount, 0);
+    return total;
+  };
 
   useEffect(() => {
     GetInomes();
 
-    console.log(incomes, "All Incomes");
+    console.log(incomes, "All Incomes", TotalIncome);
   }, []);
+
+  useEffect(() => {
+    const totalAmount = getTotalAmount(incomes);
+
+    setTotalIncome(totalAmount);
+  }, [incomes]);
 
   const GetInomes = () => {
     fetch(API_BASE + "/income")
@@ -86,11 +99,30 @@ const Incomes = () => {
       }}
     >
       {/* / HEADER */}
-      <div style={{ flex: ".1" }}>
+      <div style={{ flex: ".2" }}>
         <h2>Incomes</h2>
+
+        <div
+          style={{
+            display: "grid",
+            width: "100%",
+            background: "#FAF6F9",
+            height: "12vh",
+            borderRadius: "1.4vw",
+            padding: ".8vh",
+            marginBottom: "1.5vh",
+            placeContent: "center",
+            color: "green",
+          }}
+        >
+          <h3 style={{ display: "flex", alignItems: "center", gap: ".6vw" }}>
+            {" "}
+            Total income: <Euro /> {TotalIncome.toString()}
+          </h3>
+        </div>
       </div>
 
-      <div style={{ flex: ".9", display: "flex", gap: "2vw" }}>
+      <div style={{ flex: ".7", display: "flex", gap: "2vw" }}>
         {/* // TEXT FIELD */}
         <div style={{ flex: ".3" }}>
           {TextFieldArrays.map((data, index) => {
@@ -119,6 +151,7 @@ const Incomes = () => {
                   id="outlined-basic"
                   label={data}
                   variant="outlined"
+                  type={data === "Amount" ? "number" : "text"}
                   value={
                     data === "Title"
                       ? title
